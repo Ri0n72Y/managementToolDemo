@@ -49,3 +49,60 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
     var buttons = [member, finance, staff, invent];
     return new page("店务系统", [], buttons, shortcuts);
 }
+
+/**
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
+    var memberManage = new textButton (
+            "会员管理",
+            pageWidth * 0.07, pageHeight * 0.1,
+            image
+        );
+        memberManage.onClick = function () {
+            setPage (MenuType.PRM_MAIN_MENU);
+        };
+
+    var appointmentManage = new textButton (
+            "预约管理",
+            pageWidth * 0.07, pageHeight * 0.25,
+            image
+        );
+        appointmentManage.onClick = function () {
+            setPage (MenuType.PRM_MAIN_MENU);
+        };
+
+    var newMember = new textButton (
+            "添加会员",
+            windowWidth * 0.07, windowHeight * 0.4,
+            image
+        );
+        newMember.onClick = function () {
+            setPage(MenuType.PRM_MAIN_MENU);
+        };
+
+    var allMember = new textButton (
+            "所有会员",
+            windowWidth * 0.07, windowHeight * 0.55,
+            image
+        );
+        allMember.onClick = function () {
+            setPage(MenuType.PRM_MAIN_MENU);
+        };
+
+        var backToMainPage = new textButton (
+            "返回上级",
+            windowWidth * 0.07, windowHeight * 0.7,
+            image
+        );
+        newMember.onClick = function () {
+            setPage(MenuType.PRM_MAIN_MENU);
+        }
+
+    var buttons = [memberManage, appointmentManage, newMember, allMember, backToMainPage];
+    return new page("会员管理", [], buttons, shortcuts);
+}
+

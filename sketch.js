@@ -8,6 +8,7 @@ var data = {}; // 读取原始JSON.
 var vips = []; //用来装会员的list。
 
 var mainPage;
+var memberPage;
 var testbutton;
 
 function loadData() {
@@ -26,26 +27,22 @@ function setup() {
     bg = loadImage("assets/bg.png");
     firstIcon = loadImage("assets/prime.png");
     secondIcon = loadImage("assets/second.png");
+    thirdIcon = loadImage("assets/thrid.png");
     whichMenu = 0;
     textAlign(CENTER, CENTER);
     textSize(40);
-    mainPage = createMainPage (windowWidth, windowHeight, firstIcon, []);
+    mainPage   = createMainPage (windowWidth, windowHeight, firstIcon, []);
+    memberPage = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
 }
   
 function draw() {
     background(bg);
-    //还在主菜单时
-    if (whichMenu==0) {
-      // image(firstIcon, width/10, height/7, firstIcon.width/2, firstIcon.height/2); //top-left corner
-      // image(firstIcon, 1.3*width/10 + firstIcon.width/2, height/7, firstIcon.width/2, firstIcon.height/2); //top-right corner
-      // image(firstIcon, width/10, 1.3*height/7 + firstIcon.height/2, firstIcon.width/2, firstIcon.height/2); //bottom-left corner
-      // image(firstIcon,1.3*width/10 + firstIcon.width/2, 1.3*height/7 + firstIcon.height/2, firstIcon.width/2, firstIcon.height/2); //bottom-right corner
+    
+    if (whichMenu == MenuType.PRM_MAIN_MENU) {
+      
+      //绘制主菜单界面
       mainPage.drawImage(0.7);
-      // fill(0); //set text color to black
-      // text("会员管理", width/10+firstIcon.width/4, height/7+firstIcon.height/4); //左上角会员管理按钮的txt
-      // text("账务管理", 1.3*width/10 + firstIcon.width/2+firstIcon.width/4, height/7+firstIcon.height/4); //右上角账务管理按钮的txt
-      // text("员工管理", width/10+firstIcon.width/4,  1.3*height/7 + firstIcon.height/2+firstIcon.height/4); //左下角员工管理按钮的txt
-      // text("库存管理", 1.3*width/10 + firstIcon.width/2+firstIcon.width/4, 1.3*height/7 + firstIcon.height/2+firstIcon.height/4); //右下角库存管理按钮的txt 
+      
       if (!mouseIsPressing && mouseIsPressed) {
         mouseIsPressing = true;
         for (var i = 0; i < mainPage.buttons.length; i++) {
@@ -56,37 +53,20 @@ function draw() {
       } else {
         mouseIsPressing = false;
       }
-    } //进入会员管理菜单后 
-    else if (whichMenu==1) {
-      image(secondIcon, width/10, height/7, secondIcon.width/1.5, secondIcon.height/1.5); //第一排最左边
-      image(secondIcon, 1.3*width/10 + secondIcon.width/1.5, height/7, secondIcon.width/1.5, secondIcon.height/1.5); //第一排中间
-      image(secondIcon, 1.6*width/10 + 2*secondIcon.width/1.5, height/7, secondIcon.width/1.5, secondIcon.height/1.5); //第一排右数第二个
-      image(secondIcon, 1.9*width/10 + 3*secondIcon.width/1.5, height/7, secondIcon.width/1.5, secondIcon.height/1.5); //第一排最右
-      image(secondIcon, width/10, 1.3*height/7 + secondIcon.height/1.5, secondIcon.width/1.5, secondIcon.height/1.5); //第二排最左边
-      image(secondIcon, 1.3*width/10 + secondIcon.width/1.5, 1.3*height/7 + secondIcon.height/1.5, secondIcon.width/1.5, secondIcon.height/1.5); //第二排中间
-      image(secondIcon, 1.6*width/10 + 2*secondIcon.width/1.5, 1.3*height/7 + secondIcon.height/1.5, secondIcon.width/1.5, secondIcon.height/1.5); //第二排右数第二
-      image(secondIcon, 1.9*width/10 + 3*secondIcon.width/1.5, 1.3*height/7 + secondIcon.height/1.5, secondIcon.width/1.5, secondIcon.height/1.5); //第二排最右
-      fill(0); //set text color to black
-      text("所有会员", width/10 + secondIcon.width/3, height/7 + secondIcon.height/3);//思路同上，再度表演枚举赋值。
-      text("预约服务", 1.3*width/10 + secondIcon.width/1.5 + secondIcon.width/3, height/7 + secondIcon.height/3);
-      text("可能会有", 1.6*width/10 + 2*secondIcon.width/1.5 + secondIcon.width/3, height/7 + secondIcon.height/3);
-      text("新增会员", 1.9*width/10 + 3*secondIcon.width/1.5 + secondIcon.width/3, height/7 + secondIcon.height/3);//新增会员
-      text("来电记录", width/10 + secondIcon.width/3, 1.3*height/7 + secondIcon.height/3 + secondIcon.height/1.5);
-      text("信息推广", 1.3*width/10 + secondIcon.width/1.5 + secondIcon.width/3, 1.3*height/7 + secondIcon.height/3 + secondIcon.height/1.5);
-      text("其他项目", 1.6*width/10 + 2*secondIcon.width/1.5 + secondIcon.width/3, 1.3*height/7 + secondIcon.height/3 + secondIcon.height/1.5);
-      text("返回上级", 1.9*width/10 + 3*secondIcon.width/1.5 + secondIcon.width/3, 1.3*height/7 + secondIcon.height/3 + secondIcon.height/1.5);
-    } //进入会员信息录入界面 
-    else if (whichMenu==2) {
+
+    } else if (whichMenu == MenuType.SND_MEMBERSHIP) {
+
+      //绘制会员管理界面
+      memberPage.drawImage(0.6);
+
+      fill(255, 255, 255, 15);
+      strokeWeight(4)
+      rect(windowWidth * 0.26, windowHeight * 0.13, windowWidth * 0.65, windowHeight * 0.66)
+
+    } else if (whichMenu==2) {
       //这三个createInput()没法点进去输入，很神奇，不知道是为了什么，是不是mousePressed干扰了他
       console.log("2");
-      inputName = createInput();
-      inputName.position(width/2 - 50, height/4);
-      inputAge = createInput();
-      inputAge.position(width/2 - 50, height/4 + 40);
-      inputPhone = createInput();
-      inputPhone.position(width/2 - 50, height/4 + 80);
-    }
-    else if (whichMenu==3) {
+    } else if (whichMenu==3) {
       console.log("3");
     } else if (whichMenu==4) {
       console.log("4");
