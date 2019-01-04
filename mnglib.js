@@ -3,11 +3,16 @@
 // javascript documentation standard : https://www.css88.com/doc/jsdoc/index.html
 
 var MenuType = {
-    PRM_MAIN_MENU: 0,  // 主菜单
-    SND_MEMBERSHIP: 1, // 会员菜单
-    SND_FINANCE: 2,    // 财务管理
-    SND_STAFF: 3,      // 员工管理
-    SND_INVENTORY: 4,  // 库存管理
+    PRM_MAIN_MENU: 0,               // 主菜单
+    SND_01_MEMBERSHIP: 1,           // 会员菜单
+    SND_02_FINANCE: 2,              // 财务管理
+    SND_03_STAFF: 3,                // 员工管理
+    SND_04_INVENTORY: 4,            // 库存管理
+    TRD_11_MEMBERMANAGE: 5,         // 会员菜单 -- 会员管理
+    TRD_12_APPOINTMENTMANAGE: 6,    // 会员管理 -- 预约管理
+    TRD_13_NEWMEMBER: 7,            // 会员管理 -- 添加会员
+    TRD_14_ALLMEMBER: 8,            // 会员管理 -- 所有会员
+    
 }
 
 var shortcut = {
@@ -15,7 +20,6 @@ var shortcut = {
     FIND_MEMBER : 1, // 主菜单点击放大镜弹出输入手机号的框，输完敲回车进去
     CHECK_OUT   : 2, // 任意菜单的结账快捷按钮
     HOME        : 3, // 任意非主菜单界面快捷回到主菜单的按钮
-    TEST_1      : 4, // 测试数量对应
 }
 
 /**

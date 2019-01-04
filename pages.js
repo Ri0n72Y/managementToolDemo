@@ -12,12 +12,12 @@ var allMembers, record, appointment, management, registration
  */
 function createMainPage(pageWidth, pageHeight, image, shortcuts) {
     var member = new textButton (//Button1
-            "会员管理",
+            "会员菜单",
             pageWidth * 0.2, pageHeight * 0.1,
             image
         );
         member.onClick = function () {
-            setPage (MenuType.SND_MEMBERSHIP);
+            setPage (MenuType.SND_01_MEMBERSHIP);
         };
         
     var finance = new textButton (//Button2
@@ -26,7 +26,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         finance.onClick = function () {
-            setPage (MenuType.SND_FINANCE);
+            setPage (MenuType.SND_02_FINANCE);
         };
         
     var staff = new textButton (//Button3
@@ -35,7 +35,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         staff.onClick = function () {
-            setPage (MenuType.SND_STAFF);
+            setPage (MenuType.SND_03_STAFF);
         };
         
     var invent = new textButton (//Button4
@@ -44,7 +44,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         invent.onClick = function () {
-            setPage (MenuType.SND_INVENTORY);
+            setPage (MenuType.SND_04_INVENTORY);
         };
     var buttons = [member, finance, staff, invent];
     return new page("店务系统", [], buttons, shortcuts);
@@ -64,7 +64,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         memberManage.onClick = function () {
-            setPage ();
+            setPage (MenuType.TRD_11_MEMBERMANAGE);
         };
 
     var appointmentManage = new textButton (//Button2
@@ -73,7 +73,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         appointmentManage.onClick = function () {
-            setPage ();
+            setPage (MenuType.TRD_12_APPOINTMENTMANAGE);
         };
 
     var newMember = new textButton (//Button3
@@ -82,7 +82,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         newMember.onClick = function () {
-            setPage();
+            setPage(MenuType.TRD_13_NEWMEMBER);
         };
 
     var allMember = new textButton (//Button4
@@ -91,7 +91,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         allMember.onClick = function () {
-            setPage();
+            setPage(MenuType.TRD_14_ALLMEMBER);
         };
 
     var backToMainPage = new textButton (//Button5
@@ -275,4 +275,19 @@ function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
     
     var buttons = [allProducts, productLable, inventorys, inOutRecords, backToMainPage];
     return new page("库存管理", [], buttons, shortcuts);
+}
+
+function createTRD11(pageWidth, pageHeight, image, shortcuts) {
+    
+    var backToMainPage = new textButton (//b5
+        "返回上级",
+        windowWidth * 0.85, windowHeight * 0.7,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_01_MEMBERSHIP);
+        };
+
+    var buttons = [backToMainPage];
+    return new page("会员菜单 -- 会员管理", [], buttons, shortcuts);
 }

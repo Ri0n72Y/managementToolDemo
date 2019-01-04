@@ -34,32 +34,29 @@ function setup() {
     financePage   = createFinancePage (windowWidth, windowHeight, secondIcon, []);
     staffPage     = createStaffPage (windowWidth, windowHeight, secondIcon, []);
     inventoryPage = createInventoryPage (windowWidth, windowHeight, secondIcon, []);
+    trd11Page     = createTRD11 (windowWidth, windowHeight,secondIcon, []);
 }
   
 function draw() {
+    //clear();
     background(bg);
     
     if (whichMenu == MenuType.PRM_MAIN_MENU) {//绘制主菜单界面
-
       mainPage.drawImage(0.7);
-    
-    } else if (whichMenu == MenuType.SND_MEMBERSHIP) {//绘制会员管理界面
-
+    } else if (whichMenu == MenuType.SND_01_MEMBERSHIP) {//绘制会员菜单界面
       memberPage.drawImage(0.6);
       testDraw();
-
-    } else if (whichMenu == MenuType.SND_FINANCE) {//绘制账务管理界面
-
+    } else if (whichMenu == MenuType.SND_02_FINANCE) {//绘制账务管理界面
       financePage.drawImage(0.7);
-
-    } else if (whichMenu == MenuType.SND_STAFF) {//绘制员工管理界面
-
+    } else if (whichMenu == MenuType.SND_03_STAFF) {//绘制员工管理界面
       staffPage.drawImage(0.7);
-
-    } else if (whichMenu == MenuType.SND_INVENTORY) {//绘制库存管理界面
-
+    } else if (whichMenu == MenuType.SND_04_INVENTORY) {//绘制库存管理界面
       inventoryPage.drawImage(0.7);
-
+    } else if (whichMenu == MenuType.TRD_11_MEMBERMANAGE) {//会员菜单 -- 会员管理
+      trd11Page.drawImage(0.7);
+      input1 = createInput();
+      input1.position(windowWidth * 0.5, windowHeight * 0.5);
+      noLoop();
     }
 }
 
@@ -70,34 +67,37 @@ function mouseClicked() {
         mainPage.buttons[i].onClick();
       }
     }
-  } else if (whichMenu == MenuType.SND_MEMBERSHIP) {//会员管理界面
+  } else if (whichMenu == MenuType.SND_01_MEMBERSHIP) {//会员管理界面
     for (var i = 0; i < memberPage.buttons.length; i++) {
       if (memberPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
         memberPage.buttons[i].onClick();
       }
     }
-  } else if (whichMenu == MenuType.SND_FINANCE) {
+  } else if (whichMenu == MenuType.SND_02_FINANCE) {//账务管理界面
     for (var i = 0; i < financePage.buttons.length; i++) {
-      if (financePage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+      if (financePage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
         financePage.buttons[i].onClick();
       }
     }
-  } else if (whichMenu == MenuType.SND_STAFF) {
-    for (var i = 0; i < financePage.buttons.length; i++) {
-      if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+  } else if (whichMenu == MenuType.SND_03_STAFF) {//员工管理界面
+    for (var i = 0; i < stuffPage.buttons.length; i++) {
+      if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
         staffPage.buttons[i].onClick();
       }
     }
-  } else if (whichMenu == MenuType.SND_INVENTORY) {
-    for (var i = 0; i < financePage.buttons.length; i++) {
-      if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
-        staffPage.buttons[i].onClick();
+  } else if (whichMenu == MenuType.SND_04_INVENTORY) {//库存管理界面
+    for (var i = 0; i < inventoryPage.buttons.length; i++) {
+      if (inventoryPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+        inventoryPage.buttons[i].onClick();
       }
     }
-  } 
-
-
-
+  } else if (whichMenu == MenuType.TRD_11_MEMBERMANAGE) {//库存管理界面
+    for (var i = 0; i < trd11Page.buttons.length; i++) {
+      if (trd11Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+        trd11Page.buttons[i].onClick();
+      }
+    }
+  }
 
 
   else {//预留返回路径
@@ -107,7 +107,14 @@ function mouseClicked() {
 
 // 绘制预留空间
 function testDraw() {
-  fill(255, 255, 255, 15);
-  strokeWeight(4)
-  rect(windowWidth * 0.26, windowHeight * 0.13, windowWidth * 0.65, windowHeight * 0.66)
+  if (whichMenu == MenuType.SND_01_MEMBERSHIP) {
+    fill(255, 255, 255, 45);
+    strokeWeight(4)
+    rect(windowWidth * 0.26, windowHeight * 0.13, windowWidth * 0.65, windowHeight * 0.66)
+  }
 }
+
+/**
+ * input1 = createInput();
+ * input1.position(windowWidth * 0.5, windowHeight * 0.5);
+ */
