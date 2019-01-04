@@ -1,5 +1,4 @@
 // 如何调用另外一个js文件 https://www.jianshu.com/p/7dfd612693bc
-var mouseIsPressing; //mouseIsPressing显示是否我之前已经摁下去鼠标了只是还没来得及抬起来
 var bg;
 var whichMenu; //0为初始菜单，1为会员管理下的二级菜单，2为录入会员信息的界面，3为查看全体会员信息的界面。
 var firstIcon;
@@ -7,7 +6,7 @@ var secondIcon;
 var data = {}; // 读取原始JSON.
 var vips = []; //用来装会员的list。
 
-var mainPage, memberPage, financePage, stuffPage, inventoryPage;
+//var mainPage, memberPage, financePage, stuffPage, inventoryPage;
 
 function loadData() {
 
@@ -56,7 +55,7 @@ function draw() {
       trd11Page.drawImage(0.7);
       input1 = createInput();
       input1.position(windowWidth * 0.5, windowHeight * 0.5);
-      noLoop();
+      //noLoop();
     }
 }
 
@@ -80,7 +79,7 @@ function mouseClicked() {
       }
     }
   } else if (whichMenu == MenuType.SND_03_STAFF) {//员工管理界面
-    for (var i = 0; i < stuffPage.buttons.length; i++) {
+    for (var i = 0; i < staffPage.buttons.length; i++) {
       if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
         staffPage.buttons[i].onClick();
       }

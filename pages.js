@@ -178,7 +178,7 @@ function createStaffPage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         staffManage.onClick = function () {
-            setPage (MenuType.PRM_MAIN_MENU);
+            setPage ();
         }
 
     var staffRegister = new textButton (//b2
