@@ -17,7 +17,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         member.onClick = function () {
-            setPage (MenuType.SND_01_MEMBERSHIP);
+            setPage(MenuType.SND_01_MEMBERSHIP);
         };
         
     var finance = new textButton (//Button2
@@ -26,7 +26,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         finance.onClick = function () {
-            setPage (MenuType.SND_02_FINANCE);
+            setPage(MenuType.SND_02_FINANCE);
         };
         
     var staff = new textButton (//Button3
@@ -35,7 +35,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         staff.onClick = function () {
-            setPage (MenuType.SND_03_STAFF);
+            setPage(MenuType.SND_03_STAFF);
         };
         
     var invent = new textButton (//Button4
@@ -44,7 +44,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         invent.onClick = function () {
-            setPage (MenuType.SND_04_INVENTORY);
+            setPage(MenuType.SND_04_INVENTORY);
         };
     var buttons = [member, finance, staff, invent];
     
@@ -73,7 +73,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         memberManage.onClick = function () {
-            setPage (MenuType.TRD_11_MEMBERMANAGE);
+            setPage(MenuType.TRD_11_MEMBERMANAGE);
         };
 
     var appointmentManage = new textButton (//Button2
@@ -82,7 +82,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         appointmentManage.onClick = function () {
-            setPage (MenuType.TRD_12_APPOINTMENTMANAGE);
+            setPage(MenuType.TRD_12_APPOINTMENTMANAGE);
         };
 
     var newMember = new textButton (//Button3
@@ -328,7 +328,18 @@ function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
 
 function createTRD11(pageWidth, pageHeight, image, shortcuts) {
     
-    var backToMainPage = new textButton (//b5
+    var registerMember = new textButton (//b1
+        "会员注册",
+        windowWidth * 0.5, windowHeight * 0.2,
+        image
+        );
+        registerMember.onClick = function () {
+            setPage();
+        }
+
+
+
+    var backToMainPage = new textButton (//b2
         "返回上级",
         windowWidth * 0.85, windowHeight * 0.7,
         image
@@ -339,8 +350,8 @@ function createTRD11(pageWidth, pageHeight, image, shortcuts) {
             redraw();
         };
 
-    var buttons = [backToMainPage];
-    //return new page("", [], buttons, shortcuts);
+    var buttons = [registerMember, backToMainPage];
+    
     var temp = new page("会员菜单 -- 会员管理", [], buttons, shortcuts);
         temp.clickReact = function () {
             for (var i = 0; i < inventoryPage.buttons.length; i++) {
@@ -352,6 +363,4 @@ function createTRD11(pageWidth, pageHeight, image, shortcuts) {
     return temp;
 }
 
-function exitPages() {
-    
-}
+function exitPages() {}

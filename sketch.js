@@ -62,11 +62,12 @@ function draw() {
         input1.position(windowWidth * 0.5, windowHeight * 0.5);
         break;
     }
-    noLoop();
     
 }
 
 function mouseClicked() {
+
+  noLoop();
 
   switch (whichMenu) {
     case MenuType.PRM_MAIN_MENU:
