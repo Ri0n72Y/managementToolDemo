@@ -47,7 +47,16 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             setPage (MenuType.SND_04_INVENTORY);
         };
     var buttons = [member, finance, staff, invent];
-    return new page("店务系统", [], buttons, shortcuts);
+    
+    var temp = new page("主界面", [], buttons, shortcuts);
+    temp.clickReact = function () {
+        for (var i = 0; i < mainPage.buttons.length; i++) {
+            if (mainPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+              mainPage.buttons[i].onClick();
+            }
+        }
+    }
+    return temp;
 }
 
 /**
@@ -101,10 +110,20 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
+            redraw();
         }
 
     var buttons = [memberManage, appointmentManage, newMember, allMember, backToMainPage];
-    return new page("会员管理", [], buttons, shortcuts);
+    
+    var temp = new page("会员管理", [], buttons, shortcuts);
+    temp.clickReact = function () {
+        for (var i = 0; i < memberPage.buttons.length; i++) {
+            if (memberPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+              memberPage.buttons[i].onClick();
+            }
+        }
+    }
+    return temp;
 }
 
 /**
@@ -158,10 +177,20 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
+            redraw();
         }
 
     var buttons = [accountsOvervire, resultOvervirew, salesStatistics, newBill, backToMainPage];
-    return new page("本店账务", [], buttons, shortcuts);
+    
+    var temp = new page("账务管理", [], buttons, shortcuts);
+    temp.clickReact = function () {
+        for (var i = 0; i < financePage.buttons.length; i++) {
+            if (financePage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+              financePage.buttons[i].onClick();
+            }
+        }
+    }
+    return temp;
 }
 
 /**
@@ -215,10 +244,20 @@ function createStaffPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
+            redraw();
         }
 
     var buttons = [staffManage, staffRegister, staffArrange, staffscheduling, backToMainPage];
-    return new page("员工管理", [], buttons, shortcuts);
+    
+    var temp = new page("员工管理", [], buttons, shortcuts);
+    temp.clickReact = function () {
+        for (var i = 0; i < staffPage.buttons.length; i++) {
+            if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+              staffPage.buttons[i].onClick();
+            }
+        }
+    }
+    return temp;
 }
 
 /**
@@ -271,10 +310,20 @@ function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
+            redraw();
         }
     
     var buttons = [allProducts, productLable, inventorys, inOutRecords, backToMainPage];
-    return new page("库存管理", [], buttons, shortcuts);
+    
+    var temp = new page("库存管理", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < inventoryPage.buttons.length; i++) {
+                if (inventoryPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  inventoryPage.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
 }
 
 function createTRD11(pageWidth, pageHeight, image, shortcuts) {
@@ -285,9 +334,24 @@ function createTRD11(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         backToMainPage.onClick = function () {
-            setPage(MenuType.SND_01_MEMBERSHIP);
+            input1.remove();
+            setPage(MenuType.SND_01_MEMBERSHIP); 
+            redraw();
         };
 
     var buttons = [backToMainPage];
-    return new page("会员菜单 -- 会员管理", [], buttons, shortcuts);
+    //return new page("", [], buttons, shortcuts);
+    var temp = new page("会员菜单 -- 会员管理", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < inventoryPage.buttons.length; i++) {
+                if (trd11Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd11Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
+
+function exitPages() {
+    
 }
