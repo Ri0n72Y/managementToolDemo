@@ -100,7 +100,7 @@ function mouseClicked() {
 
 
 
-  else {
+  else {//预留返回路径
     setPage(MenuType.PRM_MAIN_MENU);
   }
 }
