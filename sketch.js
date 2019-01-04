@@ -7,9 +7,7 @@ var secondIcon;
 var data = {}; // 读取原始JSON.
 var vips = []; //用来装会员的list。
 
-var mainPage;
-var memberPage;
-var testbutton;
+var mainPage, memberPage, financePage, stuffPage, inventoryPage;
 
 function loadData() {
 
@@ -28,12 +26,14 @@ function setup() {
     firstIcon  = loadImage("assets/prime.png");
     secondIcon = loadImage("assets/second.png");
     thirdIcon  = loadImage("assets/thrid.png");
-    whichMenu = MenuType.PRM_MAIN_MENU;
     textAlign(CENTER, CENTER);
     textSize(40);
-    mainPage    = createMainPage (windowWidth, windowHeight, firstIcon, []);
-    memberPage  = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
-    financePage = createFinancePage (windowWidth, windowHeight, firstIcon, []);
+    whichMenu = MenuType.PRM_MAIN_MENU;
+    mainPage      = createMainPage (windowWidth, windowHeight, firstIcon, []);
+    memberPage    = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
+    financePage   = createFinancePage (windowWidth, windowHeight, secondIcon, []);
+    staffPage     = createStaffPage (windowWidth, windowHeight, secondIcon, []);
+    inventoryPage = createInventoryPage (windowWidth, windowHeight, secondIcon, []);
 }
   
 function draw() {
@@ -48,14 +48,18 @@ function draw() {
       memberPage.drawImage(0.6);
       testDraw();
 
-    } else if (whichMenu==2) {//绘制账务管理界面
+    } else if (whichMenu == MenuType.SND_FINANCE) {//绘制账务管理界面
 
-      financePage.drawImage(0.6);
+      financePage.drawImage(0.7);
 
-    } else if (whichMenu==3) {
-      console.log("3");
-    } else if (whichMenu==4) {
-      console.log("4");
+    } else if (whichMenu == MenuType.SND_STAFF) {//绘制员工管理界面
+
+      staffPage.drawImage(0.7);
+
+    } else if (whichMenu == MenuType.SND_INVENTORY) {//绘制库存管理界面
+
+      inventoryPage.drawImage(0.7);
+
     }
 }
 
@@ -72,6 +76,32 @@ function mouseClicked() {
         memberPage.buttons[i].onClick();
       }
     }
+  } else if (whichMenu == MenuType.SND_FINANCE) {
+    for (var i = 0; i < financePage.buttons.length; i++) {
+      if (financePage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+        financePage.buttons[i].onClick();
+      }
+    }
+  } else if (whichMenu == MenuType.SND_STAFF) {
+    for (var i = 0; i < financePage.buttons.length; i++) {
+      if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+        staffPage.buttons[i].onClick();
+      }
+    }
+  } else if (whichMenu == MenuType.SND_INVENTORY) {
+    for (var i = 0; i < financePage.buttons.length; i++) {
+      if (staffPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+        staffPage.buttons[i].onClick();
+      }
+    }
+  } 
+
+
+
+
+
+  else {
+    setPage(MenuType.PRM_MAIN_MENU);
   }
 }
 

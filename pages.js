@@ -115,42 +115,164 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
  * @param {[]} shortcuts 
  */
 function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
-    var accountsOvervire = new textButton (
+    var accountsOvervire = new textButton (//b1
         "账目总览",
-        windowWidth * 0.2, windowHeight * 0.1,
+        windowWidth * 0.15, windowHeight * 0.4,
         image
         );
         accountsOvervire.onClick = function () {
-        setPage(MenuType.PRM_MAIN_MENU);
+        setPage();
         };
 
-    var resultOvervirew = new textButton (
+    var resultOvervirew = new textButton (//b2
         "业绩统计",
-        windowWidth * 0.4, windowHeight * 0.1,
+        windowWidth * 0.3, windowHeight * 0.4,
         image
         );
         resultOvervirew.onClick = function () {
-        setPage(MenuType.PRM_MAIN_MENU);
+        setPage();
         };
 
-    var salesStatistics = new textButton (
+    var salesStatistics = new textButton (//b3
         "销售统计",
-        windowWidth * 0.6, windowHeight * 0.1,
+        windowWidth * 0.45, windowHeight * 0.4,
         image
         );
         salesStatistics.onClick = function () {
-        setPage(MenuType.PRM_MAIN_MENU);
+        setPage();
         };
 
-    var newBill = new textButton (
+    var newBill = new textButton (//b4
         "新建账单",
-        windowWidth * 0.2, windowHeight * 0.5,
+        windowWidth * 0.6, windowHeight * 0.4,
         image
         );
         newBill.onClick = function () {
-        setPage(MenuType.PRM_MAIN_MENU);
+        setPage();
         }
 
-    var buttons = [accountsOvervire, resultOvervirew, salesStatistics, newBill];
+    var backToMainPage = new textButton (//b5
+            "返回上级",
+            windowWidth * 0.85, windowHeight * 0.7,
+            image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.PRM_MAIN_MENU);
+        }
+
+    var buttons = [accountsOvervire, resultOvervirew, salesStatistics, newBill, backToMainPage];
     return new page("本店账务", [], buttons, shortcuts);
+}
+
+/**
+ * 创建员工管理界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createStaffPage(pageWidth, pageHeight, image, shortcuts) {
+    var staffManage = new textButton (//b1
+        "人员管理",
+        windowWidth * 0.15, windowHeight * 0.4,
+        image
+        );
+        staffManage.onClick = function () {
+            setPage (MenuType.PRM_MAIN_MENU);
+        }
+
+    var staffRegister = new textButton (//b2
+        "员工注册",
+        windowWidth * 0.3, windowHeight * 0.4,
+        image
+        );
+        staffRegister.onClick = function () {
+            setPage();
+        }
+
+    var staffArrange = new textButton (//b3
+        "员工安排",
+        windowWidth * 0.45, windowHeight * 0.4,
+        image
+        );
+        staffArrange.onClick = function () {
+            setPage();
+        }
+
+    var staffscheduling = new textButton (//b4
+        "员工排班",
+        windowWidth * 0.6, windowHeight * 0.4,
+        image
+        );
+        staffscheduling.onClick = function () {
+            setPage();
+        }
+
+    var backToMainPage = new textButton (//b5
+        "返回上级",
+        windowWidth * 0.85, windowHeight * 0.7,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.PRM_MAIN_MENU);
+        }
+
+    var buttons = [staffManage, staffRegister, staffArrange, staffscheduling, backToMainPage];
+    return new page("员工管理", [], buttons, shortcuts);
+}
+
+/**
+ * 创建库存管理界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
+    var allProducts = new textButton (//b1
+        "所有产品",
+        windowWidth * 0.15, windowHeight * 0.4,
+        image);
+        allProducts.onClick = function () {
+            setPage (MenuType.PRM_MAIN_MENU);
+        };
+    
+    var productLable = new textButton (//b2
+        "产品标签",
+        windowWidth * 0.3, windowHeight * 0.4,
+        image
+        );
+        productLable.onClick = function () {
+            setPage ();
+        };
+
+    var inventorys = new textButton (//3
+        "库存总览",
+        windowWidth * 0.45, windowHeight * 0.4,
+        image
+        );
+        inventorys.onClick = function () {
+            setPage ();
+        }
+
+    var inOutRecords = new textButton (//4
+        "存取记录",
+        windowWidth * 0.6, windowHeight * 0.4,
+        image
+        );
+        inOutRecords.onClick = function () {
+            setPage ();
+        };
+
+    var backToMainPage = new textButton (//b5
+        "返回上级",
+        windowWidth * 0.85, windowHeight * 0.7,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.PRM_MAIN_MENU);
+        }
+    
+    var buttons = [allProducts, productLable, inventorys, inOutRecords, backToMainPage];
+    return new page("库存管理", [], buttons, shortcuts);
 }
