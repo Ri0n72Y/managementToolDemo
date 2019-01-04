@@ -25,47 +25,33 @@ function setPage (page) {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     bg = loadImage("assets/bg.png");
-    firstIcon = loadImage("assets/prime.png");
+    firstIcon  = loadImage("assets/prime.png");
     secondIcon = loadImage("assets/second.png");
-    thirdIcon = loadImage("assets/thrid.png");
-    whichMenu = 0;
+    thirdIcon  = loadImage("assets/thrid.png");
+    whichMenu = MenuType.PRM_MAIN_MENU;
     textAlign(CENTER, CENTER);
     textSize(40);
-    mainPage   = createMainPage (windowWidth, windowHeight, firstIcon, []);
-    memberPage = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
+    mainPage    = createMainPage (windowWidth, windowHeight, firstIcon, []);
+    memberPage  = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
+    financePage = createFinancePage (windowWidth, windowHeight, firstIcon, []);
 }
   
 function draw() {
     background(bg);
     
-    if (whichMenu == MenuType.PRM_MAIN_MENU) {
-      
-      //绘制主菜单界面
+    if (whichMenu == MenuType.PRM_MAIN_MENU) {//绘制主菜单界面
+
       mainPage.drawImage(0.7);
-      
-      if (!mouseIsPressing && mouseIsPressed) {
-        mouseIsPressing = true;
-        for (var i = 0; i < mainPage.buttons.length; i++) {
-          if (mainPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
-              whichMenu = i + 1;
-          }
-        }
-      } else {
-        mouseIsPressing = false;
-      }
+    
+    } else if (whichMenu == MenuType.SND_MEMBERSHIP) {//绘制会员管理界面
 
-    } else if (whichMenu == MenuType.SND_MEMBERSHIP) {
-
-      //绘制会员管理界面
       memberPage.drawImage(0.6);
+      testDraw();
 
-      fill(255, 255, 255, 15);
-      strokeWeight(4)
-      rect(windowWidth * 0.26, windowHeight * 0.13, windowWidth * 0.65, windowHeight * 0.66)
+    } else if (whichMenu==2) {//绘制账务管理界面
 
-    } else if (whichMenu==2) {
-      //这三个createInput()没法点进去输入，很神奇，不知道是为了什么，是不是mousePressed干扰了他
-      console.log("2");
+      financePage.drawImage(0.6);
+
     } else if (whichMenu==3) {
       console.log("3");
     } else if (whichMenu==4) {
@@ -73,26 +59,25 @@ function draw() {
     }
 }
 
-  //这个function负责处理点击事务，如果以后没问题会把上面的东西去掉。
-  // function mousePressed() {
-  //   if (whichMenu == 0) {
-  //     //用于捕捉点击会员管理
-  //     if (mouseX >= width/10 && mouseY >= height/7 && mouseX <= width/10 + firstIcon.width/2 && mouseY <= height/7 + firstIcon.height/2) {
-  //       whichMenu = 1;
-  //     }
-  //   } else if (whichMenu == 1) {
-  //     //用于捕捉点击所有会员
-  //     if (mouseX >= width/10 && mouseY >= height/7 && mouseX <= width/10 + secondIcon.width/1.5 && mouseY <= height/7 + secondIcon.height/1.5) {
-  //       whichMenu = 3;
-  //     }
-  //     //用于捕捉点击新增会员 
-  //     else if (mouseX >= 1.9*width/10 + 3*secondIcon.width/1.5 && mouseY >= height/7 && mouseX <= 1.9*width/10 + 3*secondIcon.width/1.5 + secondIcon.width/1.5 && mouseY <= height/7 + secondIcon.height/1.5) {
-  //       whichMenu = 2;
-  //     } 
-  //     //用于捕捉返回上级
-  //     else if (mouseX >= 1.9*width/10 + 3*secondIcon.width/1.5 && mouseY >= 1.3*height/7 + secondIcon.height/1.5 && mouseX <= 1.9*width/10 + 3*secondIcon.width/1.5 + secondIcon.width/1.5 && mouseY <= 1.3*height/7 + secondIcon.height/1.5 + secondIcon.height/1.5) {
-  //       whichMenu = 0;
-  //     }
-  //   }
-  //} 
+function mouseClicked() {
+  if (whichMenu == MenuType.PRM_MAIN_MENU) {//主界面
+    for (var i = 0; i < mainPage.buttons.length; i++) {
+      if (mainPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+        mainPage.buttons[i].onClick();
+      }
+    }
+  } else if (whichMenu == MenuType.SND_MEMBERSHIP) {//会员管理界面
+    for (var i = 0; i < memberPage.buttons.length; i++) {
+      if (memberPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
+        memberPage.buttons[i].onClick();
+      }
+    }
+  }
+}
 
+// 绘制预留空间
+function testDraw() {
+  fill(255, 255, 255, 15);
+  strokeWeight(4)
+  rect(windowWidth * 0.26, windowHeight * 0.13, windowWidth * 0.65, windowHeight * 0.66)
+}

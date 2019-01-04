@@ -5,9 +5,9 @@
 var MenuType = {
     PRM_MAIN_MENU: 0,  // 主菜单
     SND_MEMBERSHIP: 1, // 会员菜单
-    SND_FINANCE: 2,    // 财务
+    SND_FINANCE: 2,    // 财务管理
     SND_STAFF: 3,      // 员工管理
-    SND_INVENTORY: 4,  // 库存
+    SND_INVENTORY: 4,  // 库存管理
 }
 
 var shortcut = {

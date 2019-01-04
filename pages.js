@@ -11,7 +11,7 @@ var allMembers, record, appointment, management, registration
  * @param {[]}     shortcuts  - all shortcuts it have : findMember, newMember, checkout
  */
 function createMainPage(pageWidth, pageHeight, image, shortcuts) {
-    var member = new textButton (
+    var member = new textButton (//Button1
             "会员管理",
             pageWidth * 0.2, pageHeight * 0.1,
             image
@@ -20,7 +20,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             setPage (MenuType.SND_MEMBERSHIP);
         };
         
-    var finance = new textButton (
+    var finance = new textButton (//Button2
             "本店账务",
             pageWidth * 0.4, pageHeight * 0.1,
             image
@@ -29,7 +29,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             setPage (MenuType.SND_FINANCE);
         };
         
-    var staff = new textButton (
+    var staff = new textButton (//Button3
             "员工管理",
             pageWidth * 0.2, pageHeight * 0.5,
             image
@@ -38,7 +38,7 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
             setPage (MenuType.SND_STAFF);
         };
         
-    var invent = new textButton (
+    var invent = new textButton (//Button4
             "库存管理",
             pageWidth * 0.4, pageHeight * 0.5,
             image
@@ -51,49 +51,50 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
 }
 
 /**
+ * 创建会员管理界面
  * @param {number} pageWidth 
  * @param {number} pageHeight 
  * @param {*} image 
  * @param {[]} shortcuts 
  */
 function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
-    var memberManage = new textButton (
+    var memberManage = new textButton (//Button1
             "会员管理",
             pageWidth * 0.07, pageHeight * 0.1,
             image
         );
         memberManage.onClick = function () {
-            setPage (MenuType.PRM_MAIN_MENU);
+            setPage ();
         };
 
-    var appointmentManage = new textButton (
+    var appointmentManage = new textButton (//Button2
             "预约管理",
             pageWidth * 0.07, pageHeight * 0.25,
             image
         );
         appointmentManage.onClick = function () {
-            setPage (MenuType.PRM_MAIN_MENU);
+            setPage ();
         };
 
-    var newMember = new textButton (
+    var newMember = new textButton (//Button3
             "添加会员",
             windowWidth * 0.07, windowHeight * 0.4,
             image
         );
         newMember.onClick = function () {
-            setPage(MenuType.PRM_MAIN_MENU);
+            setPage();
         };
 
-    var allMember = new textButton (
+    var allMember = new textButton (//Button4
             "所有会员",
             windowWidth * 0.07, windowHeight * 0.55,
             image
         );
         allMember.onClick = function () {
-            setPage(MenuType.PRM_MAIN_MENU);
+            setPage();
         };
 
-        var backToMainPage = new textButton (
+    var backToMainPage = new textButton (//Button5
             "返回上级",
             windowWidth * 0.07, windowHeight * 0.7,
             image
@@ -106,3 +107,50 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
     return new page("会员管理", [], buttons, shortcuts);
 }
 
+/**
+ * 创建账务管理界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
+    var accountsOvervire = new textButton (
+        "账目总览",
+        windowWidth * 0.2, windowHeight * 0.1,
+        image
+        );
+        accountsOvervire.onClick = function () {
+        setPage(MenuType.PRM_MAIN_MENU);
+        };
+
+    var resultOvervirew = new textButton (
+        "业绩统计",
+        windowWidth * 0.4, windowHeight * 0.1,
+        image
+        );
+        resultOvervirew.onClick = function () {
+        setPage(MenuType.PRM_MAIN_MENU);
+        };
+
+    var salesStatistics = new textButton (
+        "销售统计",
+        windowWidth * 0.6, windowHeight * 0.1,
+        image
+        );
+        salesStatistics.onClick = function () {
+        setPage(MenuType.PRM_MAIN_MENU);
+        };
+
+    var newBill = new textButton (
+        "新建账单",
+        windowWidth * 0.2, windowHeight * 0.5,
+        image
+        );
+        newBill.onClick = function () {
+        setPage(MenuType.PRM_MAIN_MENU);
+        }
+
+    var buttons = [accountsOvervire, resultOvervirew, salesStatistics, newBill];
+    return new page("本店账务", [], buttons, shortcuts);
+}
