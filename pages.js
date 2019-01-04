@@ -99,7 +99,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             windowWidth * 0.07, windowHeight * 0.7,
             image
         );
-        newMember.onClick = function () {
+        backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
         }
 
