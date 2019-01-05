@@ -74,7 +74,6 @@ function createRegistrationPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.SND_01_MEMBERSHIP);
-            redraw();
         };
 
     var buttons = [backToMainPage];
@@ -84,6 +83,38 @@ function createRegistrationPage(pageWidth, pageHeight, image, shortcuts) {
             for (var i = 0; i < registrationPage.buttons.length; i++) {
                 if (registrationPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
                   registrationPage.buttons[i].onClick();
+
+                  memberName.remove();
+                }
+            }
+        }
+    return temp;
+}
+
+/**
+ * 创建预约界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createAppointmentPage(pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.TRD_12_APPOINTMENTMANAGE);
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("创建预约", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < appointmentPage.buttons.length; i++) {
+                if (appointmentPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  appointmentPage.buttons[i].onClick();
                 }
             }
         }
@@ -126,6 +157,9 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         );
         newMember.onClick = function () {
             setPage(MenuType.PRM_REGISTRATION);
+            
+            memberName = createInput();
+            memberName.position(windowWidth * 0.13, windowHeight * 0.2);
         };
 
     var allMember = new textButton (//Button4
@@ -144,7 +178,6 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
-            redraw();
         }
 
     var buttons = [memberManage, appointmentManage, newMember, allMember, backToMainPage];
@@ -154,11 +187,13 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         for (var i = 0; i < memberPage.buttons.length; i++) {
             if (memberPage.buttons[i].button.isClicked(mouseX, mouseY, 0.6)) {
               memberPage.buttons[i].onClick();
+
             }
         }
     }
     return temp;
 }
+
 
 /**
  * 创建账务管理界面
@@ -211,7 +246,6 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
-            redraw();
         }
 
     var buttons = [accountsOvervire, resultOvervirew, salesStatistics, newBill, backToMainPage];
@@ -278,7 +312,6 @@ function createStaffPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
-            redraw();
         }
 
     var buttons = [staffManage, staffRegister, staffArrange, staffscheduling, backToMainPage];
@@ -344,7 +377,6 @@ function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.PRM_MAIN_MENU);
-            redraw();
         }
     
     var buttons = [allProducts, productLable, inventorys, inOutRecords, backToMainPage];
@@ -369,26 +401,22 @@ function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
  */
 function createTRD11Page(pageWidth, pageHeight, image, shortcuts) {
 
-    var searchMember = new textButton (//b2
+    var searchMember = new textButton (//b1
         "会员查询",
         windowWidth * 0.401, windowHeight * 0.5,
         image
         );
         searchMember.onClick = function () {
-            inputTest.remove();
             setPage();
-            redraw();
         }
 
-    var backToMainPage = new textButton (//b4
+    var backToMainPage = new textButton (//b2
         "返回上级",
         windowWidth * 0.82, windowHeight * 0.8,
         image
         );
         backToMainPage.onClick = function () {
-            inputTest.remove();
             setPage(MenuType.SND_01_MEMBERSHIP); 
-            redraw();
         };
 
     var buttons = [searchMember, backToMainPage];
@@ -398,6 +426,7 @@ function createTRD11Page(pageWidth, pageHeight, image, shortcuts) {
             for (var i = 0; i < trd11Page.buttons.length; i++) {
                 if (trd11Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
                     trd11Page.buttons[i].onClick();
+                    inputTest.remove();
                 }
             }
         }
@@ -412,17 +441,52 @@ function createTRD11Page(pageWidth, pageHeight, image, shortcuts) {
  * @param {[]} shortcuts 
  */
 function createTRD12Page(pageWidth, pageHeight, image, shortcuts) {
-    var backToMainPage = new textButton (//b
+    var backToMainPage = new textButton (//b1
         "返回上级",
-        windowWidth * 0.82, windowHeight * 0.8,
+        windowWidth * 0.07, windowHeight * 0.7,
         image
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.SND_01_MEMBERSHIP);
-            redraw();
         };
 
-    var buttons = [backToMainPage];
+    var createAppointment = new textButton (//b2
+        "创建预约",
+        windowWidth * 0.07, windowHeight * 0.1,
+        image
+        );
+        createAppointment.onClick = function () {
+            setPage(MenuType.PRM_APPOINTMENT);
+        }
+
+    var completedAppointment = new textButton (//b3
+        "已完成预约",
+        windowWidth * 0.07, windowHeight * 0.4,
+        image
+        );
+        completedAppointment.onClick = function () {
+
+        }
+
+    var pendingAppointment = new textButton (//b4
+        "未处理预约",
+        windowWidth * 0.07, windowHeight * 0.55,
+        image
+        );
+        pendingAppointment.onClick = function () {
+
+        }
+    
+    var todayAppointment = new textButton (//b5
+        "今日预约",
+        windowWidth * 0.07, windowHeight * 0.25,
+        image
+        );
+        todayAppointment.onClick = function () {
+
+        }
+
+    var buttons = [backToMainPage, createAppointment, completedAppointment, pendingAppointment, todayAppointment];
     
     var temp = new page("会员菜单 -- 预约管理", [], buttons, shortcuts);
         temp.clickReact = function () {
@@ -443,14 +507,13 @@ function createTRD12Page(pageWidth, pageHeight, image, shortcuts) {
  * @param {[]} shortcuts 
  */
 function createTRD13Page(pageWidth, pageHeight, image, shortcuts) {
-    var backToMainPage = new textButton (//b
+    var backToMainPage = new textButton (//b1
         "返回上级",
         windowWidth * 0.82, windowHeight * 0.8,
         image
         );
         backToMainPage.onClick = function () {
             setPage(MenuType.SND_01_MEMBERSHIP);
-            redraw();
         };
 
     var buttons = [backToMainPage];
@@ -465,5 +528,3 @@ function createTRD13Page(pageWidth, pageHeight, image, shortcuts) {
         }
     return temp;
 }
-
-function exitPages() {}
