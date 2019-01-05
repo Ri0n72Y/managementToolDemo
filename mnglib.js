@@ -3,12 +3,14 @@
 // javascript documentation standard : https://www.css88.com/doc/jsdoc/index.html
 
 var MenuType = {
-    PRM_MAIN_MENU: 0,               // 主菜单
+    PRM_MAIN_MENU: 100,             // 主菜单
+    PRM_REGISTRATION: 200,          // 注册界面
+
     SND_01_MEMBERSHIP: 1,           // 会员菜单
     SND_02_FINANCE: 2,              // 财务管理
     SND_03_STAFF: 3,                // 员工管理
     SND_04_INVENTORY: 4,            // 库存管理
-    TRD_11_MEMBERMANAGE: 5,         // 会员菜单 -- 会员管理
+    TRD_11_MEMBERMANAGE: 5,         // 会员菜单 -- 会员查询
     TRD_12_APPOINTMENTMANAGE: 6,    // 会员管理 -- 预约管理
     TRD_13_NEWMEMBER: 7,            // 会员管理 -- 添加会员
     TRD_14_ALLMEMBER: 8,            // 会员管理 -- 所有会员

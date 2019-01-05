@@ -60,6 +60,37 @@ function createMainPage(pageWidth, pageHeight, image, shortcuts) {
 }
 
 /**
+ * 创建会员注册界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createRegistrationPage(pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_01_MEMBERSHIP);
+            redraw();
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("会员菜单 -- 会员管理 -- 会员注册", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < registrationPage.buttons.length; i++) {
+                if (registrationPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  registrationPage.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
+
+/**
  * 创建会员管理界面
  * @param {number} pageWidth 
  * @param {number} pageHeight 
@@ -74,6 +105,9 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         );
         memberManage.onClick = function () {
             setPage(MenuType.TRD_11_MEMBERMANAGE);
+            inputTest = createInput();
+            inputTest.size(200, 50);
+            inputTest.position(windowWidth * 0.42, windowHeight * 0.40);
         };
 
     var appointmentManage = new textButton (//Button2
@@ -91,7 +125,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         newMember.onClick = function () {
-            setPage(MenuType.TRD_13_NEWMEMBER);
+            setPage(MenuType.PRM_REGISTRATION);
         };
 
     var allMember = new textButton (//Button4
@@ -326,41 +360,60 @@ function createInventoryPage(pageWidth, pageHeight, image, shortcuts) {
     return temp;
 }
 
-function createTRD11(pageWidth, pageHeight, image, shortcuts) {
-    
-    var registerMember = new textButton (//b1
-        "会员注册",
-        windowWidth * 0.5, windowHeight * 0.2,
+/**
+ * 创建会员查询界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createTRD11Page(pageWidth, pageHeight, image, shortcuts) {
+
+    var searchMember = new textButton (//b2
+        "会员查询",
+        windowWidth * 0.401, windowHeight * 0.5,
         image
         );
-        registerMember.onClick = function () {
+        searchMember.onClick = function () {
+            inputTest.remove();
             setPage();
+            redraw();
         }
 
-
-
-    var backToMainPage = new textButton (//b2
+    var backToMainPage = new textButton (//b4
         "返回上级",
-        windowWidth * 0.85, windowHeight * 0.7,
+        windowWidth * 0.82, windowHeight * 0.8,
         image
         );
         backToMainPage.onClick = function () {
-            input1.remove();
+            inputTest.remove();
             setPage(MenuType.SND_01_MEMBERSHIP); 
             redraw();
         };
 
-    var buttons = [registerMember, backToMainPage];
+    var buttons = [searchMember, backToMainPage];
     
     var temp = new page("会员菜单 -- 会员管理", [], buttons, shortcuts);
         temp.clickReact = function () {
-            for (var i = 0; i < inventoryPage.buttons.length; i++) {
+            for (var i = 0; i < trd11Page.buttons.length; i++) {
                 if (trd11Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
-                  trd11Page.buttons[i].onClick();
+                    trd11Page.buttons[i].onClick();
                 }
             }
         }
     return temp;
 }
+
+/**
+ * 创建预约管理界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function creat3TRD12Page(pageWidth, pageHeight, image, shortcuts) {
+
+}
+
 
 function exitPages() {}
