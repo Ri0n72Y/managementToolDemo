@@ -12,8 +12,7 @@ var MenuType = {
     SND_04_INVENTORY: 4,            // 库存管理
     TRD_11_MEMBERMANAGE: 5,         // 会员菜单 -- 会员查询
     TRD_12_APPOINTMENTMANAGE: 6,    // 会员管理 -- 预约管理
-    TRD_13_NEWMEMBER: 7,            // 会员管理 -- 添加会员
-    TRD_14_ALLMEMBER: 8,            // 会员管理 -- 所有会员
+    TRD_13_ALLMEMBER: 7,            // 会员管理 -- 所有会员
     
 }
 

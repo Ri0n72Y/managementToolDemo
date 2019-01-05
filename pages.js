@@ -79,7 +79,7 @@ function createRegistrationPage(pageWidth, pageHeight, image, shortcuts) {
 
     var buttons = [backToMainPage];
     
-    var temp = new page("会员菜单 -- 会员管理 -- 会员注册", [], buttons, shortcuts);
+    var temp = new page("注册会员", [], buttons, shortcuts);
         temp.clickReact = function () {
             for (var i = 0; i < registrationPage.buttons.length; i++) {
                 if (registrationPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
@@ -134,7 +134,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         allMember.onClick = function () {
-            setPage(MenuType.TRD_14_ALLMEMBER);
+            setPage(MenuType.TRD_13_ALLMEMBER);
         };
 
     var backToMainPage = new textButton (//Button5
@@ -393,7 +393,7 @@ function createTRD11Page(pageWidth, pageHeight, image, shortcuts) {
 
     var buttons = [searchMember, backToMainPage];
     
-    var temp = new page("会员菜单 -- 会员管理", [], buttons, shortcuts);
+    var temp = new page("会员菜单 -- 会员查询", [], buttons, shortcuts);
         temp.clickReact = function () {
             for (var i = 0; i < trd11Page.buttons.length; i++) {
                 if (trd11Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
@@ -411,9 +411,59 @@ function createTRD11Page(pageWidth, pageHeight, image, shortcuts) {
  * @param {*} image 
  * @param {[]} shortcuts 
  */
-function creat3TRD12Page(pageWidth, pageHeight, image, shortcuts) {
+function createTRD12Page(pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_01_MEMBERSHIP);
+            redraw();
+        };
 
+    var buttons = [backToMainPage];
+    
+    var temp = new page("会员菜单 -- 预约管理", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < trd12Page.buttons.length; i++) {
+                if (trd12Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd12Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
 }
 
+/**
+ * 创建所有会员一览界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createTRD13Page(pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_01_MEMBERSHIP);
+            redraw();
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("会员菜单 -- 所有会员", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < trd13Page.buttons.length; i++) {
+                if (trd13Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd13Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
 
 function exitPages() {}

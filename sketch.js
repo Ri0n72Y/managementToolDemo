@@ -6,7 +6,7 @@ var vips = []; //用来装会员的list。
 var firstIcon, secondIcon, thirdIcon;
 var mainPage, registrationPage, 
     memberPage, financePage, stuffPage, inventoryPage, 
-    trd11Page;
+    trd11Page, trd12Page, trd13Page;
 
 function loadData() {
 
@@ -29,13 +29,14 @@ function setup() {
     textSize(40);
     whichMenu = MenuType.PRM_MAIN_MENU;
     mainPage         = createMainPage (windowWidth, windowHeight, firstIcon, []);
+    registrationPage = createRegistrationPage (windowWidth, windowHeight,thirdIcon, []);
     memberPage       = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
     financePage      = createFinancePage (windowWidth, windowHeight, secondIcon, []);
     staffPage        = createStaffPage (windowWidth, windowHeight, secondIcon, []);
     inventoryPage    = createInventoryPage (windowWidth, windowHeight, secondIcon, []);
     trd11Page        = createTRD11Page (windowWidth, windowHeight,thirdIcon, []);
-    registrationPage = createRegistrationPage (windowWidth, windowHeight,thirdIcon, []);
-
+    trd12Page        = createTRD12Page (windowWidth, windowHeight,thirdIcon, []);
+    trd13Page        = createTRD13Page (windowWidth, windowHeight,thirdIcon, []);
 }
   
 function draw() {
@@ -64,9 +65,14 @@ function draw() {
       case MenuType.SND_04_INVENTORY: //绘制库存管理界面
         inventoryPage.drawImage(0.7);
         break;
-      case MenuType.TRD_11_MEMBERMANAGE: //会员菜单 -- 会员管理
+      case MenuType.TRD_11_MEMBERMANAGE: //会员菜单 -- 会员查询
         trd11Page.drawImage(0.7);
-        
+        break;
+      case MenuType.TRD_12_APPOINTMENTMANAGE: //会员菜单 -- 预约管理
+        trd12Page.drawImage(0.7);
+        break;
+      case MenuType.TRD_13_ALLMEMBER: //会员菜单 -- 所有会员
+        trd13Page.drawImage(0.7);
         break;
     }
 
@@ -99,7 +105,12 @@ function mouseClicked() {
     case MenuType.TRD_11_MEMBERMANAGE:
       trd11Page.clickReact();
       break;
-
+    case MenuType.TRD_12_APPOINTMENTMANAGE:
+      trd12Page.clickReact();
+      break;
+    case MenuType.TRD_13_ALLMEMBER:
+      trd13Page.clickReact();
+      break;
 
     default:
       setPage(MenuType.PRM_MAIN_MENU);
