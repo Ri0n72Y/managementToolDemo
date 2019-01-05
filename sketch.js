@@ -19,12 +19,16 @@ function setPage (page) {
   whichMenu = page;
 }
 
-function setup() {
-    createCanvas(windowWidth, windowHeight);
-    bg = loadImage("assets/bg.png");
+function preload() {
+    bg         = loadImage("assets/bg.png");
     firstIcon  = loadImage("assets/prime.png");
     secondIcon = loadImage("assets/second.png");
     thirdIcon  = loadImage("assets/thrid.png");
+}
+
+function setup() {
+    createCanvas(windowWidth, windowHeight);
+    
     textAlign(CENTER, CENTER);
     textSize(40);
     whichMenu = MenuType.PRM_MAIN_MENU;
