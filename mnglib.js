@@ -18,6 +18,8 @@ var MenuType = {
 
 }
 
+var stdWidth = 1280.0, stdHeight = 1024.0;
+
 var shortcut = {
     NEW_MEMBER  : 0, // 主菜单的注册会员
     FIND_MEMBER : 1, // 主菜单点击放大镜弹出输入手机号的框，输完敲回车进去
