@@ -156,10 +156,11 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         newMember.onClick = function () {
-            setPage(MenuType.PRM_REGISTRATION);
+            // setPage(MenuType.PRM_REGISTRATION);
             
-            memberName = createInput();
-            memberName.position(windowWidth * 0.13, windowHeight * 0.2);
+            // memberName = createInput();
+            // memberName.position(windowWidth * 0.13, windowHeight * 0.2);
+            window.open(getURL() + "pages/member/registration.html");
         };
 
     var allMember = new textButton (//Button4
