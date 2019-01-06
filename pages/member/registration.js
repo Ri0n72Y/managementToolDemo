@@ -20,9 +20,15 @@ function setup() {
     currentPage = 0; numOfPages = 3;
 
     var left  = new button(stdWidth * 0.4 * scale, stdHeight * 0.9 * scale, icon_sb_left);
-        left.onClick  = function () {if (currentPage > 0) currentPage--;};
+        left.onClick  = function () {
+            if (currentPage > 0) currentPage--;
+            else currentPage = 2;
+        };
     var right = new button(stdWidth * 0.6 * scale, stdHeight * 0.9 * scale, icon_sb_right);
-        right.onClick = function () {if (currentPage < 2) currentPage++;};
+        right.onClick = function () {
+            if (currentPage < 2) currentPage++;
+            else currentPage = 0;
+        };
     var dot0  = new button(stdWidth * 0.45 * scale, stdHeight * 0.9 * scale, icon_sb_dot);
         dot0.onClick  = function () {if (currentPage != 0) currentPage = 0};
     var dot1  = new button(stdWidth * 0.50 * scale, stdHeight * 0.9 * scale, icon_sb_dot);
