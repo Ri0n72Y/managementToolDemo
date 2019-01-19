@@ -70,6 +70,9 @@ function mouseClicked() {
     redraw();
 }
 
+//滚轴切换三个页面
+//颜色深浅显示当前页面
+
 function create01() {
     var p0 = new page("0",[])
 }
