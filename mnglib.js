@@ -15,7 +15,10 @@ var MenuType = {
     TRD_11_MEMBERMANAGE: 5,         // 会员菜单 -- 会员查询
     TRD_12_APPOINTMENTMANAGE: 6,    // 会员菜单 -- 预约管理
     TRD_13_ALLMEMBER: 7,            // 会员菜单 -- 所有会员
-
+    TRD_21_LAUNDRYLIST: 8,          // 本店账务 -- 账目总览
+    TRD_22_PERFORMANCESTAT: 9,      // 本店账务 -- 业绩统计
+    TRD_23_SALESSTAT: 10,           // 本店账务 -- 销售统计
+    TRD_24_NEWBALANCE: 11,          // 本店账务 -- 新建菜单
 }
 
 var stdWidth = 1920.0, stdHeight = 1080.0;
