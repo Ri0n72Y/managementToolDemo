@@ -5,9 +5,9 @@ var data = {};  // 读取原始JSON.
 var vips = [];  // 用来装会员的list。
 var scale;      // 界面大小缩放
 var firstIcon, secondIcon, thirdIcon;
-var mainPage, registrationPage, 
-    memberPage, financePage, stuffPage, inventoryPage, 
-    trd11Page, trd12Page, trd13Page;
+var mainPage, 
+    registrationPage, memberPage, financePage, stuffPage, inventoryPage; // 一二级菜单
+var trd11Page, trd12Page, trd13Page, trd21Page, trd22Page, trd23Page; // 三级菜单
 
 function loadData() {
 
@@ -32,18 +32,22 @@ function setup() {
     textAlign(CENTER, CENTER);
     textSize(40);
     whichMenu = MenuType.PRM_MAIN_MENU;
-    mainPage         = createMainPage (windowWidth, windowHeight, firstIcon, []);
-    registrationPage = createRegistrationPage (windowWidth, windowHeight,thirdIcon, []);
-    appointmentPage  = createAppointmentPage (windowWidth, windowHeight,thirdIcon, []);
+    mainPage          = createMainPage (windowWidth, windowHeight, firstIcon, []);
+    registrationPage  = createRegistrationPage (windowWidth, windowHeight,thirdIcon, []);
+    appointmentPage   = createAppointmentPage (windowWidth, windowHeight,thirdIcon, []);
 
-    memberPage       = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
-    financePage      = createFinancePage (windowWidth, windowHeight, secondIcon, []);
-    staffPage        = createStaffPage (windowWidth, windowHeight, secondIcon, []);
-    inventoryPage    = createInventoryPage (windowWidth, windowHeight, secondIcon, []);
+    memberPage        = createMemberPage (windowWidth, windowHeight, thirdIcon, []);
+    financePage       = createFinancePage (windowWidth, windowHeight, secondIcon, []);
+    staffPage         = createStaffPage (windowWidth, windowHeight, secondIcon, []);
+    inventoryPage     = createInventoryPage (windowWidth, windowHeight, secondIcon, []);
 
-    trd11Page        = createTRD11Page (windowWidth, windowHeight,thirdIcon, []);
-    trd12Page        = createTRD12Page (windowWidth, windowHeight,thirdIcon, []);
-    trd13Page        = createTRD13Page (windowWidth, windowHeight,thirdIcon, []);
+    trd11Page         = createTRD11Page (windowWidth, windowHeight,thirdIcon, []);
+    trd12Page         = createTRD12Page (windowWidth, windowHeight,thirdIcon, []);
+    trd13Page         = createTRD13Page (windowWidth, windowHeight,thirdIcon, []);
+    trd21Page         = createTRD21Page (windowWidth, windowHeight,thirdIcon, []);
+    trd22Page         = createTRD22Page (windowWidth, windowHeight,thirdIcon, []);
+    trd23Page         = createTRD23Page (windowWidth, windowHeight,thirdIcon, []);
+    trd24Page         = createTRD24Page (windowWidth, windowHeight,thirdIcon, []);
 
 }
   
@@ -53,45 +57,55 @@ function draw() {
     scale = 0.7;
 
     switch (whichMenu) {
-      case MenuType.PRM_MAIN_MENU: //绘制主菜单界面
+      case MenuType.PRM_MAIN_MENU: // 绘制主菜单界面
         mainPage.drawImage(scale);
         break;
-      case MenuType.PRM_REGISTRATION: //注册界面
-        registrationPage.drawImage(scale);
-        testDraw();
-        break;
-      case MenuType.PRM_APPOINTMENT: //创建预约
+      // case MenuType.PRM_REGISTRATION: // 注册界面
+      //   registrationPage.drawImage(scale);
+      //   testDraw();
+      //   break;
+      case MenuType.PRM_APPOINTMENT: // 创建预约
         appointmentPage.drawImage(scale);
         testDraw();
         break;
 
 
-      case MenuType.SND_01_MEMBERSHIP: //绘制会员菜单界面
+      case MenuType.SND_01_MEMBERSHIP: // 绘制会员菜单界面
         memberPage.drawImage(scale);
         testDraw();
         break;
-      case MenuType.SND_02_FINANCE: //绘制账务管理界面
+      case MenuType.SND_02_FINANCE: // 绘制账务管理界面
         financePage.drawImage(scale);
         break;
-      case MenuType.SND_03_STAFF: //绘制员工管理界面
+      case MenuType.SND_03_STAFF: // 绘制员工管理界面
         staffPage.drawImage(scale);
         break;
-      case MenuType.SND_04_INVENTORY: //绘制库存管理界面
+      case MenuType.SND_04_INVENTORY: // 绘制库存管理界面
         inventoryPage.drawImage(scale);
         break;
 
-      case MenuType.TRD_11_MEMBERMANAGE: //会员菜单 -- 会员查询
+      case MenuType.TRD_11_MEMBERMANAGE: // 会员菜单 -- 会员查询
         trd11Page.drawImage(scale);
         break;
-      case MenuType.TRD_12_APPOINTMENTMANAGE: //会员菜单 -- 预约管理
+      case MenuType.TRD_12_APPOINTMENTMANAGE: // 会员菜单 -- 预约管理
         trd12Page.drawImage(scale);
         testDraw();
         break;
-      case MenuType.TRD_13_ALLMEMBER: //会员菜单 -- 所有会员
+      case MenuType.TRD_13_ALLMEMBER: // 会员菜单 -- 所有会员
         trd13Page.drawImage(scale);
         testDraw();
         break;
-
+      case MenuType.TRD_21_LAUNDRYLIST: // 本店账务 -- 账目总览
+        trd21Page.drawImage(scale);
+        break;
+      case MenuType.TRD_22_PERFORMANCESTAT: // 本店账务 -- 业绩统计
+        trd22Page.drawImage(scale);
+        break;
+      case MenuType.TRD_23_SALESSTAT: // 本店账务 -- 销售统计
+        trd23Page.drawImage(scale);
+        break;
+      case MenuType.TRD_24_NEWBALANCE: // 本店账务 -- 新建菜单
+        trd24Page.drawImage(scale);
     }
 
 }
@@ -131,6 +145,18 @@ function mouseClicked() {
       break;
     case MenuType.TRD_13_ALLMEMBER:
       trd13Page.clickReact();
+      break;
+    case MenuType.TRD_21_LAUNDRYLIST:
+      trd21Page.clickReact();
+      break;
+    case MenuType.TRD_22_PERFORMANCESTAT:
+      trd22Page.clickReact();
+      break;
+    case MenuType.TRD_23_SALESSTAT:
+      trd23Page.clickReact();
+      break;
+    case MenuType.TRD_24_NEWBALANCE:
+      trd24Page.clickReact();
       break;
 
     default:

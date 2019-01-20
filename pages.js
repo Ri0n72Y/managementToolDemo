@@ -83,8 +83,7 @@ function createRegistrationPage(pageWidth, pageHeight, image, shortcuts) {
             for (var i = 0; i < registrationPage.buttons.length; i++) {
                 if (registrationPage.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
                   registrationPage.buttons[i].onClick();
-
-                  memberName.remove();
+                  //memberName.remove();
                 }
             }
         }
@@ -137,7 +136,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         memberManage.onClick = function () {
             setPage(MenuType.TRD_11_MEMBERMANAGE);
             inputTest = createInput();
-            inputTest.size(200, 50);
+            // inputTest.size(200, 50);
             inputTest.position(windowWidth * 0.42, windowHeight * 0.40);
         };
 
@@ -157,7 +156,6 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
         );
         newMember.onClick = function () {
             // setPage(MenuType.PRM_REGISTRATION);
-            
             // memberName = createInput();
             // memberName.position(windowWidth * 0.13, windowHeight * 0.2);
             window.open(getURL() + "pages/member/registration.html");
@@ -210,7 +208,7 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         accountsOvervire.onClick = function () {
-        setPage();
+            setPage(MenuType.TRD_21_LAUNDRYLIST);
         };
 
     var resultOvervirew = new textButton (//b2
@@ -219,7 +217,7 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         resultOvervirew.onClick = function () {
-        setPage();
+            setPage(MenuType.TRD_22_PERFORMANCESTAT);
         };
 
     var salesStatistics = new textButton (//b3
@@ -228,7 +226,7 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         salesStatistics.onClick = function () {
-        setPage();
+            setPage(MenuType.TRD_23_SALESSTAT);
         };
 
     var newBill = new textButton (//b4
@@ -237,7 +235,7 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         newBill.onClick = function () {
-        setPage();
+            setPage(MenuType.TRD_24_NEWBALANCE);
         }
 
     var backToMainPage = new textButton (//b5
@@ -524,6 +522,126 @@ function createTRD13Page(pageWidth, pageHeight, image, shortcuts) {
             for (var i = 0; i < trd13Page.buttons.length; i++) {
                 if (trd13Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
                   trd13Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
+
+/**
+ * 创建账目总览界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createTRD21Page (pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b1
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_02_FINANCE);
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("本店账务 -- 账目总览", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < trd21Page.buttons.length; i++) {
+                if (trd21Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd21Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
+
+/**
+ * 创建业绩统计界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createTRD22Page (pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b1
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_02_FINANCE);
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("本店账务 -- 业绩统计", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < trd22Page.buttons.length; i++) {
+                if (trd22Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd22Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
+
+/**
+ * 创建销售统计界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createTRD23Page (pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b1
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_02_FINANCE);
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("本店账务 -- 销售统计", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < trd23Page.buttons.length; i++) {
+                if (trd23Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd23Page.buttons[i].onClick();
+                }
+            }
+        }
+    return temp;
+}
+
+/**
+ * 创建新账单界面
+ * @param {number} pageWidth 
+ * @param {number} pageHeight 
+ * @param {*} image 
+ * @param {[]} shortcuts 
+ */
+function createTRD24Page (pageWidth, pageHeight, image, shortcuts) {
+    var backToMainPage = new textButton (//b1
+        "返回上级",
+        windowWidth * 0.82, windowHeight * 0.8,
+        image
+        );
+        backToMainPage.onClick = function () {
+            setPage(MenuType.SND_02_FINANCE);
+        };
+
+    var buttons = [backToMainPage];
+    
+    var temp = new page("本店账务 -- 新建账单", [], buttons, shortcuts);
+        temp.clickReact = function () {
+            for (var i = 0; i < trd24Page.buttons.length; i++) {
+                if (trd24Page.buttons[i].button.isClicked(mouseX, mouseY, 0.7)) {
+                  trd24Page.buttons[i].onClick();
                 }
             }
         }
