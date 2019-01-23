@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+        <meta charset="utf-8">
+        <title>新会员资料登录</title>
+		<script src="../../lib/p5/p5.js"></script>
+        <script src="../../lib/p5/addons/p5.dom.js"></script>
+        <script src="registration.js"></script>
+        <script src="../../mnglib.js"></script>
+    
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style type = "text/css">
+    #register{
+        position:absolute;
+        left: 250px;
+        top: 250px;
+        z-index: 2;
+
+    }
+    </style>
+</head>
+<body>
+    <form id="register">
+        
+        姓名：<input type="text" name="user" value="hpc"><br>
+        密码：<input type="text" name="pwd" value="123"><br>
+        性别：<input type="text" name="sex" value="M"><br>
+        年龄：<input type="text" name="age" value="100"><br>
+        手机号：<input type="text" name="phone" value="13011112222"><br>
+        邮箱： <input type="text" name="email" value="xxx@xxx.com"><br>
+        来店途径<input type="text" name="way"  value="微信"><br>
+    </form><br>
+    <button id ="get">提交</button>
+    
+   
+    Jquery 的serialize()方法
+    <div id="show">
+        
+    </div><br>
+    Jquery 的serializeArray()方法
+    <div id="show2">
+        
+    </div><br>
+    Jquery serializeArray()方法的数据转json
+    <div id="show3">
+        
+    </div>
+</body>
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#get").click(function(){
+
+    
+
+
+    var register =$("#register");
+    //返回字符串xxx=xxx&yyy=yyy;
+    var formData = register.serialize();
+    $("#show").html(formData);
+    // 返回的是json数组[{xxx:xxx},{yyy:yyy}]
+    formData = register.serializeArray();
+    $("#show2").html(JSON.stringify(formData));
+
+    //将json数组转为json 对象
+    var jsons = transformToJson(formData);
+    $("#show3").html(JSON.stringify(jsons));
+
+    // 转为json数据格式
+    function transformToJson(formData){
+        var obj={}
+        for (var i in formData) {
+            /*[{"name":"user","value":"hpc"},{"name":"pwd","value":"123"},{"name":"sex","value":"M"},{"name":"age","value":"100"},{"name":"phone","value":"13011112222"},{"name":"email","value":"xxx@xxx.com"}]
+            */
+            //下标为的i的name做为json对象的key，下标为的i的value做为json对象的value
+            obj[formData[i].name]=formData[i]['value'];
+        }
+        return obj;
+    }
+    });
+});
+
+
+
+</script>

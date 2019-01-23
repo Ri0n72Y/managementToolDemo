@@ -8,7 +8,106 @@
         <script src="../../lib/p5/addons/p5.dom.js"></script>
         <script src="registration.js"></script>
         <script src="../../mnglib.js"></script>
+        <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+        </script>
     </head>
     <body>
+            <form id="forms" name="input" action="data.html" methof=get"get">
+        姓名：
+        <input type="text" name="Xingming"/>
+    </br>
+        密码：
+        <input type="text/number" name="Mima"/>
+</br>
+        性别：
+        <input type="text" name="Xingbie"/>
+</br>
+        手机号：
+        <input type="number" name="Shouji"/>
+</br>
+        
+            来店途径</br><br/>
+            <label><input name ="How" type="checkbox"value=""/>微信</label>
+            <label><input name ="How" type="checkbox"value=""/>RnD品牌</label>
+            <label><input name ="How" type="checkbox"value=""/>朋友推荐</label>
+            <label><input name ="How" type="checkbox"value=""/>路过</label>
+            <label><input name ="How" type="checkbox"value=""/>杂志广告</label>
+        </br>
+            <label><input name ="How" type="checkbox"value=""/>网络电视</label>
+            <label><input name ="How" type="checkbox"value=""/>电视剧</label>
+            <label><input name ="How" type="checkbox"value=""/>电影</label>
+            <label><input name ="How" type="checkbox"value=""/>地铁广告</label>
+            <label><input name ="How" type="checkbox"value=""/>海报</label>
+            <label><input name ="How" type="checkbox"value=""/>其他</label>
+        <br>
+            <input text="text" id="test"/>
+            <button id="search">生成</button>
+      
+        </form>
+<--上面这个就是收集需要的注册数据的表单用id可以定位到这这个表单的数据-->
+        <div id = "re">
+            ojbk:
+            <p id="ree"></p>
+        </div>
+        <script>
+        var data=["asd"]
+        $("#search").click(function(){
+            var localStorage =window.localStorage;
+            localStorage.setItem("key",data)
+            woshisei 
+        })
+        </script>
+<--尝试了一下这个localStorage的临时缓存但是好像没有window.loaclstoeag这个东西没法存也没法显示-->
+
+
+<input type="text" id="text" />
+<select id="type">
+  <option value="session">sessionStorage</option>
+  <option value="local">localStorage</option>
+</select>
+<button onclick="save();">
+  保存数据</button>
+<button onclick="load();">
+  读取数据</button>
+<script type="text/javascript">
+  var msg = document.getElementById('msg'),
+            text = document.getElementById('text'),
+            type = document.getElementById('type');
+
+  function save() {
+    var str = text.value;
+    var t = type.value;
+    if (t == 'session') {
+      sessionStorage.setItem('msg', str);
+    } else {
+      localStorage.setItem('msg', str);
+    }
+  }
+  function load() {
+    var t = type.value;
+    if (t == 'session') {
+      msg.innerHTML = sessionStorage.getItem('msg');
+    } else {
+      msg.innerHTML = localStorage.getItem('msg');
+    }
+  }
+</script>
+<--用这个方法会弹出下载界面应该是不能用了-->
+
+
+
+
+
+
+
+
+        <script type="text/javascript">
+            function getElements(formId) {
+                var form =document.getElementById(forms);
+                var elements = new Array();
+            }
+        </script>
+    
+        
     </body>
 </html>
