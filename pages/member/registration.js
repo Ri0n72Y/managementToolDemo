@@ -73,6 +73,18 @@ function mouseClicked() {
 //滚轴切换三个页面
 //颜色深浅显示当前页面
 
+function submitMember() {
+    var content = submitMemberInfo();
+    $.post(url, {
+        name:"testInfo",
+        id:"0005468",
+        data: "content"
+    },
+    function(data, status) {
+        alert("data: \n" + data + "\nstatus: " + status);
+    });
+}
+
 function create01() {
     var p0 = new page("0",[])
 }
