@@ -6,7 +6,8 @@
 function putNewMember(id, data) {
     $.ajax(
         {
-            url: url + "/members/new_member",
+            async : false,
+            url: url + "/members/new_members",
             type: "POST",
             dataType: "json",
             data: {
@@ -14,22 +15,36 @@ function putNewMember(id, data) {
                 data : data
             },
             success: function (data) {
-                var result = JSON.stringify(data);
-                alert(result);
+                alert(data ? "添加成功" : "添加操作出现错误，请核对信息是否输入正确");
             }
         }
     );
 }
 
-function deleteMember(key) {
+function deleteMemberByID(key) {
     $.ajax(
         {
-            url: url + "/members/delete_member",
-            type: "POST",
+            url: url + "/members/delete_members",
+            type: "DELETE",
             dataType: "json",
             data: {
-                id : id,
-                data : data
+                id : key
+            },
+            success: function (data) {
+                alert(data ? "删除完成" : "未删除任何数据，请核对信息是否正确");
+            }
+        }
+    );
+}
+
+function getMember(key) {
+    $.ajax(
+        {
+            url: url + "/members/get_member",
+            type: "GET",
+            dataType: "json",
+            data: {
+                id : key
             },
             success: function (data) {
                 var result = JSON.stringify(data);
@@ -39,14 +54,22 @@ function deleteMember(key) {
     );
 }
 
-
+function getAllMembers() {
+    var result;
+    $.ajax({
+        async : false,
+        url : url + "/members/get_allMembers",
+        type: "GET",
+        success : function (data) {
+            result = JSON.parse(data);
+        }
+    });
+    return result;
+}
 
 function transformToJson(formData){
     var obj={}
     for (var i in formData) {
-        /*[{"name":"user","value":"hpc"},{"name":"pwd","value":"123"},{"name":"sex","value":"M"},{"name":"age","value":"100"},{"name":"phone","value":"13011112222"},{"name":"email","value":"xxx@xxx.com"}]
-        */
-        //下标为的i的name做为json对象的key，下标为的i的value做为json对象的value
         obj[formData[i].name]=formData[i]['value'];
     }
     return obj;

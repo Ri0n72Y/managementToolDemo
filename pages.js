@@ -134,10 +134,11 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         memberManage.onClick = function () {
-            setPage(MenuType.TRD_11_MEMBERMANAGE);
-            inputTest = createInput();
-            // inputTest.size(200, 50);
-            inputTest.position(windowWidth * 0.42, windowHeight * 0.40);
+            // setPage(MenuType.TRD_11_MEMBERMANAGE);
+            // inputTest = createInput();
+            // // inputTest.size(200, 50);
+            // inputTest.position(windowWidth * 0.42, windowHeight * 0.40);
+            window.open(getURL() + "pages/member/search.html");
         };
 
     var appointmentManage = new textButton (//Button2
@@ -158,7 +159,7 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             // setPage(MenuType.PRM_REGISTRATION);
             // memberName = createInput();
             // memberName.position(windowWidth * 0.13, windowHeight * 0.2);
-            window.open(getURL() + "pages/member/exampl.html");
+            window.open(getURL() + "pages/member/registration.html");
         };
 
     var allMember = new textButton (//Button4
@@ -167,7 +168,8 @@ function createMemberPage(pageWidth, pageHeight, image, shortcuts) {
             image
         );
         allMember.onClick = function () {
-            setPage(MenuType.TRD_13_ALLMEMBER);
+            window.open(getURL() + "pages/member/allMembers.html");
+            //setPage(MenuType.TRD_13_ALLMEMBER);
         };
 
     var backToMainPage = new textButton (//Button5

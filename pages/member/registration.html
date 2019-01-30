@@ -18,15 +18,23 @@
         border-radius: 5%;
         padding-top: 3%;
         padding-bottom: 3%;
-        padding-left: 2.5%;
+        padding-left: 5%;
         padding-right: 2.5%;
         background-image: url("../../assets/bg.png");
         background-repeat: repeat-x;
-
         text-align: left;
-        font-size: 1.8em;
+        font-size: 150%;
         color: white;
 
+    }
+    .title{
+        position: relative;
+        text-align: center;
+        font-size: 200%;
+        padding-top: 0%;
+        padding-bottom: 0%;
+        padding-left: 0%;
+        padding-right: 2.5%;
     }
     #get{
         position: relative;
@@ -37,6 +45,7 @@
         z-index: 3;
     }
     input.stylish {
+        position: relative;
         font-size: 85%;
         margin-bottom: 1%;
     }
@@ -44,14 +53,15 @@
 </head>
 <body>
     <form id="register">
+        <p class="title">新会员资料登陆</p><br>
         姓名：    <input class="stylish" type="text" name="c_name" value=""><br>
         性别：    <input class="stylish" type="text" name="c_gender" value=""><br>
-        年龄：    <input class="stylish" type="number" name="c_age" value="请输入你的年龄"><br>
+        年龄：    <input class="stylish" type="number" name="c_age" value="199"><br>
         手机号：  <input class="stylish" id="mobile" type="text" name="c_mobile" value=""><br>
         备注：    <input class="stylish" type="text" name="c_desc" value=""><br>
         偏好：    <input class="stylish" type="text" name="c_detail" value="Nan"><br>
-        卡类型：  <input class="stylish" type="text" name="c_type" value="Nan"><br>
-        卡余额：  <input class="stylish" type="number" name="c_currency" value="3000"><br>
+        卡类型：  <input class="stylish" type="text" name="c_type" value=""><br>
+        卡余额：  <input class="stylish" type="text" name="c_currency" value="3000"><br>
         来店途径：<input class="stylish" type="text" name="c_stat"  value=""><br>
         <button id ="get">提交</button>
     </form><br>
