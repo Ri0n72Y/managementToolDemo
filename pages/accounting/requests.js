@@ -79,7 +79,7 @@ function getAllTerms(sdate, edate) {
                 edate : edate
             },
             success: function (data) {
-                result = JSON.parse(data);
+                result = JSON.parse(JSON.stringify(data));
             }
         }
     );
@@ -104,6 +104,7 @@ function getCidByMobile(mobile) {
     );
     return result;
 }
+
 function getInfoByID(id) {
     var result;
     $.ajax(
@@ -116,7 +117,7 @@ function getInfoByID(id) {
                 id : id
             },
             success: function (data) {
-                result = JSON.parse(data);
+                result = JSON.parse(JSON.stringify(data));
             }
         }
     );
