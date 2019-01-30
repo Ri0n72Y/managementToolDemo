@@ -22,7 +22,7 @@ var MenuType = {
 }
 
 var stdWidth = 1920.0, stdHeight = 1080.0;
-var url = "http://localhost:5432/";
+var url = "http://localhost:8080";
 
 var shortcut = {
     NEW_MEMBER  : 0, // 主菜单的注册会员

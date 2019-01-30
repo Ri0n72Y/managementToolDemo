@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>新会员资料登录</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../mnglib.js"></script>
+    <script src="registration.js"></script>
+    <script src="requests.js"></script>
+    <style type = "text/css">
+    #register{
+        /* width: 850px;
+        height:300px;*/
+        position:relative;
+        left: 0px;
+        top: 0px;
+        z-index: 2;
+        border-style: none;
+        border-radius: 5%;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        background-image: url("../../assets/bg.png");
+        background-repeat: repeat-x;
+
+        text-align: left;
+        font-size: 1.8em;
+        color: white;
+
+    }
+    #get{
+        position: relative;
+        left: 80%;
+        top: 0%;
+        width: 12%;
+        font-size: 100%;
+        z-index: 3;
+    }
+    input.stylish {
+        font-size: 85%;
+        margin-bottom: 1%;
+    }
+    </style>
+</head>
+<body>
+    <form id="register">
+        姓名：    <input class="stylish" type="text" name="c_name" value=""><br>
+        性别：    <input class="stylish" type="text" name="c_gender" value=""><br>
+        年龄：    <input class="stylish" type="number" name="c_age" value="请输入你的年龄"><br>
+        手机号：  <input class="stylish" id="mobile" type="text" name="c_mobile" value=""><br>
+        备注：    <input class="stylish" type="text" name="c_desc" value=""><br>
+        偏好：    <input class="stylish" type="text" name="c_detail" value="Nan"><br>
+        卡类型：  <input class="stylish" type="text" name="c_type" value="Nan"><br>
+        卡余额：  <input class="stylish" type="number" name="c_currency" value="3000"><br>
+        来店途径：<input class="stylish" type="text" name="c_stat"  value=""><br>
+        <button id ="get">提交</button>
+    </form><br>
+</body>
