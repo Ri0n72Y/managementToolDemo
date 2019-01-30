@@ -159,13 +159,6 @@ function getMember(key) {
     return result;
 }
 
-function transformToJson(formData){
-    var obj={}
-    for (var i in formData) {
-        obj[formData[i].name]=formData[i]['value'];
-    }
-    return obj;
-}
 
 function getCurrency(id) {
     var result;

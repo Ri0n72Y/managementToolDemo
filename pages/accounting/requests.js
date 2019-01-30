@@ -86,12 +86,30 @@ function getAllTerms(sdate, edate) {
     return result;
 }
 
+function getCidByMobile(mobile) {
+    var result;
+    $.ajax(
+        {
+            async : false,
+            url: url + "/members/get_CidByMobile",
+            type: "GET",
+            dataType: "json",
+            data: {
+                mobile : mobile
+            },
+            success: function (data) {
+                result = JSON.parse(JSON.stringify(data));
+            }
+        }
+    );
+    return result;
+}
 function getInfoByID(id) {
     var result;
     $.ajax(
         {
             async : false,
-            url: url + "/member/get_info",
+            url: url + "/members/get_InfoByID",
             type: "GET",
             dataType: "json",
             data: {

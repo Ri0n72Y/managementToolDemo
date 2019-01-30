@@ -136,6 +136,16 @@ function getNowFormatDate() {
     return currentdate;
 }
 
+function getNowFormatTime() {
+    var date = new Date();
+    var seperator1 = ":";
+    var hour = date.getHours();
+    var min  = date.getMinutes();
+    var sec  = date.getSeconds();
+    var currentTime = hour + seperator1 + min + seperator1 + sec;
+    return currentTime;
+}
+
 function getRegistrationID(mobile) {
     var date = new Date();
     var year = date.getFullYear();
@@ -149,4 +159,12 @@ function getRegistrationID(mobile) {
     }
     var id = year + month + strDate + mobile.slice(7);
     return id;
+}
+
+function transformToJson(formData){
+    var obj={}
+    for (var i in formData) {
+        obj[formData[i].name]=formData[i]['value'];
+    }
+    return obj;
 }
