@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>全部账目</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../../mnglib.js"></script>
+    <script src="requests.js"></script>
+    <script src="accounting.js"></script>
+    <style type="text/css">
+        #amount-form {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #amount-form th, #member-form td{
+            font-size: 1em;
+            padding: 10px;
+            border: 1px, solid rgb(28, 19, 75);
+            background-color: #dfffed;
+            text-align: left;
+        }
+        #amount-form th{
+            font-size: 150%;
+            padding: 2.5%, 1.5%, 2%, 2%;
+            background-color: #2bff8a;
+            color: white;
+        }
+        #amount-form tr.alt td {
+            color:#000000;
+            background-color: #a0ffcb;
+        }
+
+    </style>
+</head>
+<body>
+    <table id="amount-form" border="1">
+        <tr>
+            <th>ID</th>
+            <th>序号</th>
+            <th>日期</th>
+            <th>时间</th>
+            <th>顾客ID</th>
+            <th>顾客姓名</th>
+            <th>顾客手机</th>
+            <th>项目ID</th>
+            <th>项目名称</th>
+            <th>员工</th>
+            <th>金额</th>
+            <th>支付方式</th>
+            <th>登记人</th>
+            <th>备注</th>
+        </tr>
+    </table>
+</body>

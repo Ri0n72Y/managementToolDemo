@@ -85,3 +85,22 @@ function getAllTerms(sdate, edate) {
     );
     return result;
 }
+
+function getInfoByID(id) {
+    var result;
+    $.ajax(
+        {
+            async : false,
+            url: url + "/member/get_info",
+            type: "GET",
+            dataType: "json",
+            data: {
+                id : id
+            },
+            success: function (data) {
+                result = JSON.parse(data);
+            }
+        }
+    );
+    return result;
+}
