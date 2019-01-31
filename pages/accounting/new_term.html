@@ -59,7 +59,14 @@
         <span style="display:inline-block;width: 300px;"> 技师ID：   </span> <input class="stylish" id="text" type="text" name="s_id" value=""><br>
         <span style="display:inline-block;width: 300px;"> 产品：     </span> <input class="stylish" type="text" name="p_id" value=""><br>
         <span style="display:inline-block;width: 300px;"> 消费：     </span> <input class="stylish" type="text" name="a_amount" value=""><br>
-        <span style="display:inline-block;width: 300px;"> 支付方式： </span> <input class="stylish" type="text" name="a_type" value=""><br>
+        <span style="display:inline-block;width: 300px;"> 支付方式： </span> 
+        <select style="font-size:85%; width: 28.4%;" action = "" name="a_type">
+            <option value="卡支付" selected>卡支付</option>
+            <option value="支付宝">支付宝</option>
+            <option value="微信">微信</option>
+            <option value="现金">现金</option>
+        </select>
+        <br>
         <span style="display:inline-block;width: 300px;"> 记录人ID： </span> <input class="stylish" type="text" name="s_logid" value=""><br>
         <span style="display:inline-block;width: 300px;"> 备注：     </span> <input class="stylish" type="text" name="a_desc" value=""><br>
         <button id ="get">提交</button>

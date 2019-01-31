@@ -210,7 +210,8 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         accountsOvervire.onClick = function () {
-            setPage(MenuType.TRD_21_LAUNDRYLIST);
+            //setPage(MenuType.TRD_21_LAUNDRYLIST);
+            window.open(getURL() + "pages/accounting/accounting.html");
         };
 
     var resultOvervirew = new textButton (//b2
@@ -237,7 +238,8 @@ function createFinancePage(pageWidth, pageHeight, image, shortcuts) {
         image
         );
         newBill.onClick = function () {
-            setPage(MenuType.TRD_24_NEWBALANCE);
+            //setPage(MenuType.TRD_24_NEWBALANCE);
+            window.open(getURL() + "pages/accounting/new_term.html");
         }
 
     var backToMainPage = new textButton (//b5
